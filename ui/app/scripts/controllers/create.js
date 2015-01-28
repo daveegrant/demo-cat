@@ -4,8 +4,8 @@
   angular.module('demoCat')
     .controller('CreateCtrl', CreateCtrl);
 
-  CreateCtrl.$inject = ['$scope', 'Features', 'Domains', 'demoService', 'User', '$location', 'edit', 'demo', '$routeParams'];
-  function CreateCtrl($scope, features, domains, demoService, user, $location, edit, demo, $routeParams) {
+  CreateCtrl.$inject = ['$scope', 'Domains', 'demoService', 'User', '$location', '$routeParams', 'edit', 'demo', 'features'];
+  function CreateCtrl($scope, domains, demoService, user, $location, $routeParams, edit, demo, features) {
       var model = {
         demo: demo || {
           name: '',
@@ -24,7 +24,7 @@
           persons: []
         },
         edit: edit,
-        featureChoices: features.list(),
+        featureChoices: features,
         domainChoices: domains.list(),
         browserChoices: ['Firefox', 'Chrome', 'IE'],
         personRoleChoices: ['Technical Contact', 'Business Owner', 'External Contact'],
